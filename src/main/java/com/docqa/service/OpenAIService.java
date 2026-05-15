@@ -17,8 +17,8 @@ public class OpenAIService {
     private final ObjectMapper mapper = new ObjectMapper();
 
     public String askQuestion(String context, String question) {
-        String trimmed = context != null && context.length() > 800
-                ? context.substring(0, 800) : context;
+        String trimmed = context != null && context.length() > 400
+                ? context.substring(0, 400) : context;
         String prompt = "Based on this document:\n\n" + trimmed
                 + "\n\nAnswer this question briefly: " + question;
         return callGroq(prompt);
